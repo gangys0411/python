@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+
+movies = ["Batman", "Harry Porter", "Scream", "Happy Dog"]
+
+#for 문을 이용하여 movies 안에 있는 영화 제목을 모두 출력합니다.
+print "관람하실 영화를 입력해 주세요."
+for movie in movies:
+	print movie
+
+# 사용자에게 어떤 영화를 볼지 질문을 출력합니다.
+print "관람하실 영화를 입력해 주세요."
+choice = raw_input()
+
+#while 문을 이용하여 선택한 영화가 목록에 없을 시에는 영화 제목을 다시 입력받습니다.
+while choice not in movies:
+	print "다시 선택해 주세요."
+	choice = raw_input()
+	
+# 사용자의 명 수를 질문한 뒤 입력받습니다.
+print "관람하실 인원을 입력해 주세요."
+number = input()
+
+# 입력받은 number (양수 이고 정수) 가 아니라면 다시 입력받음
+while not((type(number)==int) & (number > 0)):
+	print "인원은 양수이고 정수이어야 합니다."
+	number = input()
+	
+# 할인권 유무 질문
+print "할인권이 있는 경우 y 입력, 없는 경우 n 을 입력해 주세요."
+
+#사용자 입력 저장
+coupon = raw_input()
+
+#할인권 금액 0으로 초기화
+coupon_price = 0
+
+#할인권이 있다면 얼마 있는지 질문
+if coupon == 'y':
+	print "할인권의 금액:"
+	coupon_price = input()
+
+#할인 전 원래 티켓 가격
+original_price = number * 12000
+
+#총 티켓 금액 계산
+price_sum = original_price - coupon_price
+
+#티켓 금액 내용 출력
+print "_______________________"
+print "결제 내역"
+print "_______________________"
+print "인원 : %d명" %number
+print "영화 제목 : %s" %choice
+print "합산 금액 : %d원" %original_price
+print "할인 금액 : %d원" %coupon_price
+print "_______________________"
+print "총 결제 금액 : %d원" %price_sum
